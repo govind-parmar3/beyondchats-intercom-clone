@@ -1,0 +1,32 @@
+import './globals.css'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import Sidebar from '@/components/Sidebar'
+import Topbar from '@/components/Topbar'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'BeyondChats Admin',
+  description: 'Intercom UI Clone Assignment',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body className={`${inter.className} bg-gray-100 dark:bg-gray-900`}>
+        <div className="flex">
+          <Sidebar />
+          <div className="flex-1 flex flex-col">
+            <Topbar />
+            <main className="p-4">{children}</main>
+          </div>
+        </div>
+      </body>
+    </html>
+  )
+}
